@@ -14,6 +14,7 @@ public:
   explicit GetPoseClient(
       const rclcpp::NodeOptions &node_options = rclcpp::NodeOptions())
       : Node("get_pose_client", node_options), goal_done_(false) {
+      
     this->client_ptr_ = rclcpp_action::create_client<Find>(
         this->get_node_base_interface(), this->get_node_graph_interface(),
         this->get_node_logging_interface(),
