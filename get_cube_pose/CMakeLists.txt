@@ -23,9 +23,20 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
+add_executable(get_pose_client src/get_pose_client.cpp)
+ament_target_dependencies(get_pose_client
+  "rclcpp"
+  "rclcpp_action"
+  "grasping_msgs")
+
+install(TARGETS
+  get_pose_client
+  DESTINATION lib/${PROJECT_NAME})
+
 # Install launch files.
 install(DIRECTORY
   launch
+  rviz
   DESTINATION share/${PROJECT_NAME}/
 )
 
