@@ -285,8 +285,8 @@ int main(int argc, char **argv) {
   current_state_arm->copyJointGroupPositions(joint_model_group_arm,
                                              joint_group_positions_arm);
   if (joint_group_positions_arm[0] < 0)
-    joint_group_positions_arm[0] +=
-        3.14; // Shoulder Pan else joint_group_positions_arm[0] -= 3.14;
+    joint_group_positions_arm[0] +=3.14; 
+  else joint_group_positions_arm[0] -= 3.14;
 
   move_group_arm.setJointValueTarget(joint_group_positions_arm);
 
