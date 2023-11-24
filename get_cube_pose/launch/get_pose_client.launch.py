@@ -13,7 +13,9 @@ def generate_launch_description():
         name='basic_grasping_perception_node',
         output='screen',
         emulate_tty=True,
-        parameters=[{'debug_topics': True}]
+        parameters=[{'debug_topics': False},
+                    {'camera_topic': "/camera/depth/color/points"},
+                    ]
         )
 
     get_pose = Node(
@@ -25,7 +27,7 @@ def generate_launch_description():
     )
 
     # RVIZ Configuration
-    rviz_config_dir = os.path.join(get_package_share_directory(package_description), 'rviz', 'perception.rviz')
+    rviz_config_dir = os.path.join(get_package_share_directory(package_description), 'rviz', 'perception_real.rviz')
 
 
     rviz_node = Node(
@@ -40,6 +42,6 @@ def generate_launch_description():
     [
         basic_grasp,
         get_pose,
-        rviz_node
+        # rviz_node
     ]    
     )
