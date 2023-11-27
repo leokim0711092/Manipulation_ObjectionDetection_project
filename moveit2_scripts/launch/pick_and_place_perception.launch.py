@@ -15,7 +15,7 @@ def generate_launch_description():
         name='basic_grasping_perception_node',
         output='screen',
         emulate_tty=True,
-        parameters=[{'debug_topics': True}]
+        parameters=[{'debug_topics': True}],
         )
 
     #moveit_config = MoveItConfigsBuilder("name", package_name="my_moveit2_config").to_moveit_configs()
@@ -42,14 +42,13 @@ def generate_launch_description():
             executable='rviz2',
             output='screen',
             name='rviz_node',
-            parameters=[{'use_sim_time': False}],
+            parameters=[{'use_sim_time': True}],
             arguments=['-d', rviz_config_dir])
 
     return launch.LaunchDescription(
     [
         basic_grasp,
         moveit_cpp_node,
-        
         rviz_node
     ]    
     )
