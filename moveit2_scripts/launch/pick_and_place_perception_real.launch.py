@@ -15,7 +15,9 @@ def generate_launch_description():
         name='basic_grasping_perception_node',
         output='screen',
         emulate_tty=True,
-        parameters=[{'debug_topics': True}],
+        parameters=[{'debug_topics': True},
+                    {'camera_topic': "/camera/depth/color/points"},
+                    ],
         )
 
     #moveit_config = MoveItConfigsBuilder("name", package_name="my_moveit2_config").to_moveit_configs()
@@ -24,7 +26,7 @@ def generate_launch_description():
     # MoveItCpp demo executable
     moveit_cpp_node = Node(
         package="moveit2_scripts",
-        executable="pick_and_place_perception",
+        executable="pick_and_place_perception_real",
         output="screen",
         parameters=[
             moveit_config.robot_description,
@@ -49,6 +51,6 @@ def generate_launch_description():
     [
         basic_grasp,
         moveit_cpp_node,
-        rviz_node
+        # rviz_node
     ]    
     )
