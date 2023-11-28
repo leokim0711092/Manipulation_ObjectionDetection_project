@@ -178,7 +178,7 @@ int main(int argc, char **argv) {
   RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "X = %f", action_client->X_arg);
   RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Y = %f", action_client->Y_arg);
 
-  float X_pos = action_client->X_arg;
+  float X_pos = action_client->X_arg + 0.013;
   float Y_pos = action_client->Y_arg;
 //   float X_pos = 0.0;
 //   float Y_pos = 0.0;
