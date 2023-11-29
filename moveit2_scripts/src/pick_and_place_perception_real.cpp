@@ -128,7 +128,7 @@ int main(int argc, char **argv) {
   RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Y = %f", action_client->Y_arg);
 
   float X_pos = action_client->X_arg;
-  float Y_pos = action_client->Y_arg;
+  float Y_pos = action_client->Y_arg - 0.06;
 
 
   rclcpp::NodeOptions node_options;
@@ -367,10 +367,10 @@ int main(int argc, char **argv) {
   RCLCPP_INFO(LOGGER, "Retreat from object!");
 
   std::vector<geometry_msgs::msg::Pose> retreat_waypoints;
-  target_pose1.position.z += 0.20;
+  target_pose1.position.z += 0.22;
   retreat_waypoints.push_back(target_pose1);
 
-  target_pose1.position.z += 0.20;
+  target_pose1.position.z += 0.22;
   retreat_waypoints.push_back(target_pose1);
 
   moveit_msgs::msg::RobotTrajectory trajectory_retreat;
