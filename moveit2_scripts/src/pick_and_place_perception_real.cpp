@@ -128,8 +128,13 @@ int main(int argc, char **argv) {
   RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Y = %f", action_client->Y_arg);
 
   float X_pos = action_client->X_arg;
-  float Y_pos = action_client->Y_arg - 0.06;
+  float Y_pos = action_client->Y_arg ;
 
+  X_pos -= X_pos - 0.34;
+  Y_pos -= Y_pos - 0.132;
+
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "X new = %f", X_pos);
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Y new = %f", Y_pos);
 
   rclcpp::NodeOptions node_options;
   node_options.automatically_declare_parameters_from_overrides(true);

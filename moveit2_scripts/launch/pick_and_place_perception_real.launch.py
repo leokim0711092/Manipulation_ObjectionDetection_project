@@ -51,6 +51,6 @@ def generate_launch_description():
     [
         basic_grasp,
         moveit_cpp_node,
-        # rviz_node
+        rviz_node
     ]    
     )
