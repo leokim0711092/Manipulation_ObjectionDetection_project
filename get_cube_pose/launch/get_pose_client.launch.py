@@ -14,7 +14,6 @@ def generate_launch_description():
         output='screen',
         emulate_tty=True,
         parameters=[{'debug_topics': False},
-                    {'camera_topic': "/camera/depth/color/points"},
                     ]
         )
 
